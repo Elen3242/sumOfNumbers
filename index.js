@@ -17,19 +17,33 @@
     // console.log(checkTargetIndex([1, 2, 3, 4, 5], 10));
     // // change number in console and return which numbers of arr  sum
 //---------------------------------------------------------
-    const checkTargetIndex = (arr, target) => {
-    const result = [];
+//     const checkTargetIndex = (arr, target) => {
+//     const result = [];
 
-     for (let i = 0; i < arr.length; i++) {
-         for (let j = i + 1; j < arr.length; j++) {
-            if (arr[i] + arr[j] === target) {
-        result.push([i, j]);
-      }
-    }
-  }
+//      for (let i = 0; i < arr.length; i++) {
+//          for (let j = i + 1; j < arr.length; j++) {
+//             if (arr[i] + arr[j] === target) {
+//         result.push([i, j]);
+//       }
+//     }
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
-console.log(checkTargetIndex([1, 2, 3, 4, 5, 5], 10));
+// console.log(checkTargetIndex([1, 2, 3, 4, 5, 5], 10));
 //-----------------------------------------------------------
+const checkTragetIndex = (arr, target) => {
+        const result = [];
+        for (let i = 0; i < arr.length - 2; i++) {
+            for (let j = i + 1; j < arr.length - 1; j++) {
+             for (let k = j + 1; k < arr.length; k++) {
+                if (arr[i] + arr[j] + arr[k] === target) {
+                result.push([i, j, k]);
+                }
+              }
+            }
+        }
+            return result;
+        }
+    console.log(checkTragetIndex([1, 2, 3, 4, 5], 9));
