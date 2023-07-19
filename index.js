@@ -49,16 +49,32 @@
 //     console.log(checkTragetIndex([1, 2, 3, 4, 5], 9));
 // ------------------------------------------------------------------
 
+    // const checkTragetIndex = (arr, target) => {
+    //     const result = [];
+    //     for (let i = 0; i < arr.length; i++) {
+    //         for (let j = i + 1; j < arr.length; j++) {
+    //         if (arr[i] + arr[j] === target) {
+    //             result.push([i, j]);
+    //         }
+    //         }
+    //     }
+    //     return result;
+    //     }
+    //     const array = [1, 2, 3, 4, 5];
+    //     console.log(checkTragetIndex(array, 9));
+    // -------------------------------------
+
     const checkTragetIndex = (arr, target) => {
         const result = [];
+        const map = {};
         for (let i = 0; i < arr.length; i++) {
-            for (let j = i + 1; j < arr.length; j++) {
-            if (arr[i] + arr[j] === target) {
-                result.push([i, j]);
-            }
-            }
+          const complement = target - arr[i];
+          if (map[complement] !== undefined) {
+            result.push([map[complement], i]);
+          }
+          map[arr[i]] = i;
         }
         return result;
-        }
-        const array = [1, 2, 3, 4, 5];
-        console.log(checkTragetIndex(array, 9));
+      }
+      const array = [1, 2, 3, 4, 5];
+      console.log(checkTragetIndex(array, 9));
